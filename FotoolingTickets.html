@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotooling Tickets</title>
+    <link rel="stylesheet" href="FotoolingTickets.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Fotooling Tickets</h1>
+        <button id="exportButton">Exporteer naar Excel</button>
+
+        <form id="ticketForm">
+            <div class="dropdown">
+                <input type="text" id="name" placeholder="Naam" readonly required>
+                <ul class="dropdown-list" id="nameDropdownList">
+                  <!-- Options worden hier dynamisch toegevoegd -->
+                </ul>
+            </div>
+            <textarea id="issue" placeholder="Probleem" required></textarea>
+            
+            <div class="dropdown">
+                <input type="text" id="kanaal" placeholder="Kanaal" readonly>
+                <ul class="dropdown-list" id="kanaalDropdownList">
+                  <!-- Options worden hier dynamisch toegevoegd -->
+                </ul>
+            </div>
+            <button type="submit" id="submitButton">Toevoegen</button>
+            <button id="resetButton" type="button">Wissen</button>
+        </form>
+
+        <input type="text" id="search" placeholder="Zoek tickets...">
+        <ul id="ticketList"></ul>
+    </div>
+
+    <!-- HTML voor de Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Ticket Bewerken</h2>
+            <form id="editTicketForm">
+                <div class="dropdown">
+                    <input type="text" id="editTicketName" placeholder="Naam" readonly required>
+                    <ul class="dropdown-list" id="editNameDropdownList">
+                      <!-- Options worden hier dynamisch toegevoegd -->
+                    </ul>
+                </div>
+                <textarea id="editTicketDescription" placeholder="Beschrijving" required></textarea>
+                
+                <div class="dropdown">
+                    <input type="text" id="editTicketKanaal" placeholder="Kanaal" readonly required>
+                    <ul class="dropdown-list" id="editKanaalDropdownList">
+                      <!-- Options worden hier dynamisch toegevoegd -->
+                    </ul>
+                </div>
+                
+                <button type="submit" id="updateTicketButton">Opslaan</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="FotoolingTickets.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</body>
+</html>
